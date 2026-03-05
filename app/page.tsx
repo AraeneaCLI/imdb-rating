@@ -17,6 +17,7 @@ interface MovieData {
   plot: string | null;
   poster: string | null;
   cast: CastMember[] | null;
+  reviews: string[] | null;
 }
 
 interface SentimentData {
@@ -53,6 +54,7 @@ export default function Home() {
         plot: data.plot,
         poster: data.poster,
         cast: data.cast,
+        reviews: data.reviews,
       });
 
       setSentiment({
@@ -71,7 +73,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-[#0E0E11] text-[#E3E3E3] selection:bg-blue-500/30 overflow-x-hidden">
+    <main className="min-h-screen text-[#E3E3E3] selection:bg-blue-500/30 overflow-x-hidden">
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
         {!searchedId && (
           <>
@@ -142,6 +144,7 @@ export default function Home() {
                       rating={movieData?.rating || null}
                       plot={movieData?.plot || null}
                       cast={movieData?.cast || null}
+                      reviews={movieData?.reviews || null}
                       isLoading={isLoading}
                     />
                   </div>
