@@ -32,7 +32,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const BACKEND_URL = "http://localhost:5000";
+  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   const fetchMovieData = async (imdbId: string) => {
     setIsLoading(true);
